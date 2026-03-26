@@ -99,24 +99,6 @@ const CaseStudiesSection = () => (
             <div className="mb-6">
               <RatingStars rating={4.5} />
             </div>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <div className="flex justify-between">
-                <span>Quality</span>
-                <span className="text-foreground font-medium">4.5 / 5</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Schedule</span>
-                <span className="text-foreground font-medium">3.5 / 5</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Cost</span>
-                <span className="text-foreground font-medium">4.5 / 5</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Willing to Refer</span>
-                <span className="text-foreground font-medium">4.5 / 5</span>
-              </div>
-            </div>
             <div className="mt-6 pt-6 border-t border-border/20">
               <p className="text-sm font-semibold text-foreground">Publisher</p>
               <p className="text-xs text-muted-foreground">Book & Data Publishing Company</p>
