@@ -46,6 +46,10 @@ const HeroSection = () => (
         </div>
         <div className="bg-glass rounded-xl px-5 py-3 border-glow flex items-center gap-3">
           <img src={microsoftBadge} alt="Microsoft Certified Partner" className="h-10 w-auto" />
+          <div>
+            <p className="text-sm font-semibold text-foreground">Microsoft Partner</p>
+            <p className="text-xs text-muted-foreground">Since 2010</p>
+          </div>
         </div>
         <div className="bg-glass rounded-xl px-5 py-3 border-glow">
           <p className="text-2xl font-extrabold text-foreground">95%+</p>
