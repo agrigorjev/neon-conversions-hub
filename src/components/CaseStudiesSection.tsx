@@ -3,7 +3,7 @@ import { ArrowUpRight, Star, Quote } from "lucide-react";
 import mandaraLogo from "@/assets/mandara-logo.png";
 import ellomyntLogo from "@/assets/ellomynt-logo.png";
 import craftsmanLogo from "@/assets/craftsman-logo.png";
-
+import filestarLogo from "@/assets/filestar-logo.png";
 const smallCases = [
   {
     name: "Mandara Capital (UK)",
