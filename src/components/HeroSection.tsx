@@ -1,13 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-
-const trustItems = [
-  { label: "Clutch Verified", value: "Top Dev Company 2025" },
-  { label: "Microsoft Partner", value: "Since 2010" },
-  { label: "Client Retention", value: "95%+" },
-];
+import clutchBadge from "@/assets/clutch-2025-logo.png";
+import microsoftBadge from "@/assets/microsoft-certified.png";
 
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
