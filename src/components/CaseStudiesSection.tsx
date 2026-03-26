@@ -23,7 +23,7 @@ const smallCases = [
     name: "Filestar AB (Sweden)",
     tags: "SaaS, C#, AI, Cloud",
     desc: "A SaaS company engaged Roxosoft to assist in developing their product and bringing it to market. The team integrated seamlessly, delivering quality code and significant progress.",
-    logo: null,
+    logo: filestarLogo,
     link: "https://clutch.co/go-to-review/e32937d7-4e2c-462e-bb5d-7106b4d6ea9d/281088",
   },
 ];
