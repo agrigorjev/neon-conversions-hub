@@ -5,9 +5,8 @@ const Footer = () => (
     <div className="container">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <a href="#" className="text-xl font-bold">
-            <span className="text-gradient-neon">Roxo</span>
-            <span className="text-foreground">soft</span>
+          <a href="#">
+            <img src={logo} alt="Roxosoft" className="h-8 w-auto" />
           </a>
           <p className="text-xs text-muted-foreground mt-2">Custom Software Development Partner</p>
         </div>
