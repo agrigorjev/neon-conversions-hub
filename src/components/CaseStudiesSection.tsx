@@ -3,7 +3,7 @@ import { ArrowUpRight, Star, Quote } from "lucide-react";
 import mandaraLogo from "@/assets/mandara-logo.png";
 import ellomyntLogo from "@/assets/ellomynt-logo.png";
 import craftsmanLogo from "@/assets/craftsman-logo.png";
-
+import filestarLogo from "@/assets/filestar-logo.png";
 const smallCases = [
   {
     name: "Mandara Capital (UK)",
@@ -23,7 +23,7 @@ const smallCases = [
     name: "Filestar AB (Sweden)",
     tags: "SaaS, C#, AI, Cloud",
     desc: "A SaaS company engaged Roxosoft to assist in developing their product and bringing it to market. The team integrated seamlessly, delivering quality code and significant progress.",
-    logo: null,
+    logo: filestarLogo,
     link: "https://clutch.co/go-to-review/e32937d7-4e2c-462e-bb5d-7106b4d6ea9d/281088",
   },
 ];
@@ -98,24 +98,6 @@ const CaseStudiesSection = () => (
             </div>
             <div className="mb-6">
               <RatingStars rating={4.5} />
-            </div>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <div className="flex justify-between">
-                <span>Quality</span>
-                <span className="text-foreground font-medium">4.5 / 5</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Schedule</span>
-                <span className="text-foreground font-medium">3.5 / 5</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Cost</span>
-                <span className="text-foreground font-medium">4.5 / 5</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Willing to Refer</span>
-                <span className="text-foreground font-medium">4.5 / 5</span>
-              </div>
             </div>
             <div className="mt-6 pt-6 border-t border-border/20">
               <p className="text-sm font-semibold text-foreground">Publisher</p>
