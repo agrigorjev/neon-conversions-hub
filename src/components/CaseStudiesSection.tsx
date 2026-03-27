@@ -97,9 +97,7 @@ const CaseStudiesSection = () => (
           <div className="border-t md:border-t-0 md:border-l border-border/30 p-8 flex flex-col justify-center bg-primary/[0.03]">
             <div className="mb-6">
               <Quote className="w-8 h-8 text-primary/40 mb-4" />
-              <p className="text-lg font-medium text-foreground leading-relaxed italic">
-                "I'm impressed with their professional and thorough work ethic, that makes it easy to trust them."
-              </p>
+              <TypewriterQuote text="I'm impressed with their professional and thorough work ethic, that makes it easy to trust them." />
             </div>
             <div className="mb-6">
               <RatingStars rating={4.5} />
