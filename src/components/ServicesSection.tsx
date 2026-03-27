@@ -88,7 +88,7 @@ const ServicesSection = () => {
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.35 }}
-              className="bg-glass rounded-2xl p-8 md:p-10 border-glow glow-neon flex flex-col justify-between row-span-2"
+              className="bg-glass rounded-2xl p-8 md:p-10 border-glow glow-neon flex flex-col justify-between md:row-span-2"
             >
               <div>
                 <div className="flex items-center gap-4 mb-6">
