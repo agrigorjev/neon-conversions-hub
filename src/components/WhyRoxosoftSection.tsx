@@ -47,18 +47,18 @@ const items: (MosaicItem & { col: string; row: string })[] = [
   { icon: Handshake, title: "Microsoft Partner", desc: "Years as Microsoft Partner", stat: "15+", numeric: true, end: 15, suffix: "+", size: "md", col: "md:col-span-2", row: "" },
   { icon: Filter, title: "Rigorous Selection", desc: "~100 per hire", size: "sm", col: "md:col-span-1", row: "" },
   { icon: Clock, title: "Experience", desc: "Years Software Dev Experience", stat: "20+", numeric: true, end: 20, suffix: "+", size: "md", col: "md:col-span-2", row: "" },
-  // Row 3-4
-  { icon: MessageSquare, title: "Expert Consultation", desc: "Product and tech experts — no account managers.", size: "lg", col: "md:col-span-3", row: "md:row-span-2" },
-  { icon: BadgeCheck, title: "Certified Pros", desc: "Microsoft, AWS, Google, Oracle & more", size: "md", col: "md:col-span-2", row: "" },
-  { icon: Trophy, title: "Proven Track Record", desc: "Cross-industry", size: "sm", col: "md:col-span-1", row: "" },
-  { icon: Users, title: "Senior Engineers", desc: "Senior-Level Engineers", stat: "75%+", numeric: true, end: 75, suffix: "%+", size: "md", col: "md:col-span-2", row: "" },
-  { icon: HeartHandshake, title: "Client-Centric", desc: "Your priorities", size: "sm", col: "md:col-span-1", row: "" },
-  // Row 5
+  // Row 3 (was bottom row)
   { icon: TrendingUp, title: "Client Retention", desc: "5+ years avg", size: "sm", col: "md:col-span-1", row: "" },
   { icon: FolderKanban, title: "50+ Projects", desc: "Delivered", numeric: true, end: 50, suffix: "+", size: "md", col: "md:col-span-2", row: "" },
   { icon: Settings, title: "Tailored Solutions", desc: "Custom IT", size: "sm", col: "md:col-span-1", row: "" },
   { icon: LifeBuoy, title: "Continuous Support", desc: "Post-launch", size: "sm", col: "md:col-span-1", row: "" },
   { icon: Settings, title: "Custom IT", desc: "Tailored solutions for your stack", size: "sm", col: "md:col-span-1", row: "" },
+  // Row 4-5 (Expert Consultation moved to right)
+  { icon: BadgeCheck, title: "Certified Pros", desc: "Microsoft, AWS, Google, Oracle & more", size: "md", col: "md:col-span-2", row: "" },
+  { icon: Trophy, title: "Proven Track Record", desc: "Cross-industry", size: "sm", col: "md:col-span-1", row: "" },
+  { icon: MessageSquare, title: "Expert Consultation", desc: "Product and tech experts — no account managers.", size: "lg", col: "md:col-span-3", row: "md:row-span-2" },
+  { icon: Users, title: "Senior Engineers", desc: "Senior-Level Engineers", stat: "75%+", numeric: true, end: 75, suffix: "%+", size: "md", col: "md:col-span-2", row: "" },
+  { icon: HeartHandshake, title: "Client-Centric", desc: "Your priorities", size: "sm", col: "md:col-span-1", row: "" },
 ];
 
 // Remove duplicate "Custom IT"
