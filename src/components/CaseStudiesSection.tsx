@@ -5,6 +5,33 @@ import mandaraLogo from "@/assets/mandara-logo.png";
 import ellomyntLogo from "@/assets/ellomynt-logo.png";
 import craftsmanLogo from "@/assets/craftsman-logo.png";
 import filestarLogo from "@/assets/filestar-logo.png";
+
+function TypewriterQuote({ text, speed = 35 }: { text: string; speed?: number }) {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+  const ref = useRef<HTMLParagraphElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  useEffect(() => {
+    if (!inView) return;
+    let i = 0;
+    const timer = setInterval(() => {
+      i++;
+      if (i > text.length) { setDone(true); clearInterval(timer); }
+      else setDisplayed(text.slice(0, i));
+    }, speed);
+    return () => clearInterval(timer);
+  }, [inView, text, speed]);
+
+  return (
+    <p ref={ref} className="text-lg font-medium text-foreground leading-relaxed italic min-h-[4.5rem]">
+      "{displayed}
+      {!done && <span className="inline-block w-[2px] h-[1.1em] bg-primary ml-0.5 align-middle animate-pulse" />}
+      {done && """}
+    </p>
+  );
+}
+
 const smallCases = [
   {
     name: "Mandara Capital (UK)",
