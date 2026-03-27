@@ -1,21 +1,25 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Send, Mail, Phone, MapPin } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Send, Paperclip, FileText, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
+  const [nda, setNda] = useState(false);
+  const fileRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
+      toast({ title: "Request sent!", description: "Our founders will review your requirements shortly." });
     }, 1000);
   };
 
@@ -26,39 +30,57 @@ const ContactSection = () => {
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Get In Touch</p>
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Let's Build <span className="text-gradient-neon">Together</span></h2>
 
-        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <motion.form onSubmit={handleSubmit} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="md:col-span-3 bg-glass rounded-2xl p-8 border-glow space-y-5">
-            <Input placeholder="Full Name" required className="bg-secondary border-border focus:ring-primary" />
-            <Input type="email" placeholder="Email" required className="bg-secondary border-border focus:ring-primary" />
+            className="bg-glass rounded-2xl p-8 border-glow space-y-5">
+            <Input placeholder="Name" required className="bg-secondary border-border focus:ring-primary" />
+            <Input type="email" placeholder="Corporate Email" required className="bg-secondary border-border focus:ring-primary" />
             <Input type="tel" placeholder="Phone" className="bg-secondary border-border focus:ring-primary" />
-            <Textarea placeholder="About your project" rows={4} required className="bg-secondary border-border focus:ring-primary resize-none" />
+            <Textarea placeholder="Please describe your project requirements" rows={4} required className="bg-secondary border-border focus:ring-primary resize-none" />
+
+            <div>
+              <input ref={fileRef} type="file" className="hidden" onChange={(e) => setFile(e.target.files?.[0] || null)} />
+              {file ? (
+                <div className="flex items-center gap-2 text-sm text-muted-foreground bg-secondary rounded-md px-3 py-2">
+                  <FileText className="w-4 h-4 text-primary shrink-0" />
+                  <span className="truncate flex-1">{file.name}</span>
+                  <button type="button" onClick={() => setFile(null)} className="text-muted-foreground hover:text-foreground"><X className="w-4 h-4" /></button>
+                </div>
+              ) : (
+                <Button type="button" variant="outline" className="w-full border-dashed border-border text-muted-foreground hover:text-foreground" onClick={() => fileRef.current?.click()}>
+                  <Paperclip className="w-4 h-4 mr-2" /> Attach File
+                </Button>
+              )}
+            </div>
+
+            <label className="flex items-center gap-3 cursor-pointer">
+              <Checkbox checked={nda} onCheckedChange={(v) => setNda(v === true)} />
+              <span className="text-sm text-muted-foreground">I would like you to sign an NDA</span>
+            </label>
+
             <Button type="submit" disabled={loading} className="w-full bg-gradient-neon text-primary-foreground font-semibold glow-neon hover:opacity-90">
-              {loading ? "Sending..." : <>Send Message <Send className="ml-2 w-4 h-4" /></>}
+              {loading ? "Sending..." : <>Send Request <Send className="ml-2 w-4 h-4" /></>}
             </Button>
           </motion.form>
 
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="md:col-span-2 flex flex-col gap-8 justify-center">
-            <div className="flex items-start gap-4">
-              <Mail className="w-5 h-5 text-primary mt-1 shrink-0" />
-              <div>
-                <p className="text-sm font-semibold text-foreground">Email</p>
-                <p className="text-sm text-muted-foreground">info@roxosoft.com</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <Phone className="w-5 h-5 text-primary mt-1 shrink-0" />
-              <div>
-                <p className="text-sm font-semibold text-foreground">Phone</p>
-                <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <MapPin className="w-5 h-5 text-primary mt-1 shrink-0" />
-              <div>
-                <p className="text-sm font-semibold text-foreground">Office</p>
-                <p className="text-sm text-muted-foreground">San Francisco, CA</p>
-              </div>
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex flex-col justify-center">
+            <h3 className="text-2xl font-bold text-foreground mb-8">What Happens Next?</h3>
+            <div className="space-y-8">
+              {[
+                { step: 1, title: "We Analyze Your Requirements", desc: "Our founders will personally review your project details and reach out to discuss your vision and goals." },
+                { step: 2, title: "NDA & Confidentiality", desc: "If needed, we sign a Non-Disclosure Agreement to ensure your ideas and data stay fully protected." },
+                { step: 3, title: "Project Proposal", desc: "We submit a comprehensive project proposal with timeline, milestones, and a transparent cost breakdown." },
+              ].map((item) => (
+                <div key={item.step} className="flex gap-4">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary font-bold text-sm shrink-0 border border-primary/30">
+                    {item.step}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">{item.title}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
