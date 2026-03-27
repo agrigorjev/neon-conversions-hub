@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import clutchBadge from "@/assets/clutch-2025-logo.png";
 import microsoftBadge from "@/assets/microsoft-certified.png";
+import teamPhoto from "@/assets/team.png";
 
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
@@ -26,6 +27,12 @@ const HeroSection = () => (
           </Button>
           <Button asChild variant="outline" size="lg" className="border-glow text-foreground hover:bg-secondary text-base px-8">
             <a href="#cases">View Case Studies</a>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="border-glow text-foreground hover:bg-secondary text-base pl-1.5 pr-6">
+            <a href="#about" className="flex items-center gap-3">
+              <img src={teamPhoto} alt="Roxosoft team" className="h-8 w-auto rounded-full" />
+              Meet the Team
+            </a>
           </Button>
         </div>
       </motion.div>
