@@ -56,8 +56,8 @@ const HeroSection = () => (
             size="lg"
             className="border-glow text-foreground hover:bg-secondary text-base pl-1.5 pr-6"
           >
-            <a href="#about" className="flex items-center gap-3">
-              <img src={teamPhoto} alt="Roxosoft team" className="h-11 w-auto rounded-full" />
+            <a href="#about" className="group flex items-center gap-3">
+              <img src={teamPhoto} alt="Roxosoft team" className="h-11 w-auto object-contain self-center transition-all group-hover:opacity-70 group-hover:grayscale" />
               Meet the Team
             </a>
           </Button>
