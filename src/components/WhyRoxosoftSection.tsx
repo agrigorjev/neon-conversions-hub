@@ -33,6 +33,7 @@ const bullets = [
   { icon: HeartHandshake, label: "Most clients stay over", end: 8, suffix: " years" },
   { icon: FolderKanban, label: "Projects delivered", end: 50, suffix: "+" },
   { icon: Users, label: "IT experts are seniors", end: 75, suffix: "%+" },
+  { icon: Filter, label: "Candidates screened per new team member", end: 100, suffix: "+" },
 ];
 
 const ticker = [
@@ -59,7 +60,7 @@ const WhyRoxosoftSection = () => (
       </p>
 
       {/* Bullet list with highlighted numbers */}
-      <div className="max-w-2xl mx-auto space-y-5 mb-20">
+      <div className="grid md:grid-cols-2 gap-5 mb-20">
         {bullets.map((b, i) => (
           <motion.div
             key={b.label}

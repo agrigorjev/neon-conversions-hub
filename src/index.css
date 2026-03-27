@@ -155,6 +155,6 @@
   }
 
   .animate-marquee {
-    animation: marquee-scroll 30s linear infinite;
+    animation: marquee-scroll 15s linear infinite;
   }
 }
