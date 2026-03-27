@@ -27,6 +27,39 @@ const generalServices = [
   },
 ];
 
+const insuranceServices = [
+  {
+    icon: Shield,
+    title: "App Development",
+    description: "We build intuitive mobile and web applications tailored for insurance carriers, brokers, and MGAs. From policy quoting tools to claims filing apps, our solutions streamline workflows and improve policyholder engagement across every touchpoint.",
+  },
+  {
+    icon: Cpu,
+    title: "Software Development",
+    description: "Custom policy administration systems, underwriting engines, and billing platforms built from the ground up. We architect scalable, compliant software that integrates with your existing tech stack and adapts to evolving regulatory requirements.",
+  },
+  {
+    icon: Globe,
+    title: "Portal Development",
+    description: "Self-service portals for agents, brokers, and policyholders that reduce call center volume and accelerate service delivery. Our portals feature real-time policy management, document access, and seamless payment processing.",
+  },
+  {
+    icon: Database,
+    title: "Automation",
+    description: "Eliminate manual bottlenecks with intelligent process automation. We automate claims adjudication, policy renewals, document processing, and compliance reporting — cutting operational costs by up to 60% while reducing human error.",
+  },
+  {
+    icon: BarChart3,
+    title: "Data Analytics",
+    description: "Turn raw insurance data into actionable intelligence. Our analytics solutions cover loss ratio analysis, fraud detection, predictive modeling for risk assessment, and real-time dashboards that empower data-driven decision-making.",
+  },
+  {
+    icon: Lock,
+    title: "Risk Management",
+    description: "Comprehensive risk management platforms that help insurers identify, assess, and mitigate exposure. We build tools for portfolio risk scoring, catastrophe modeling, regulatory compliance tracking, and enterprise risk reporting.",
+  },
+];
+
 const ServicesSection = () => {
   const [activeService, setActiveService] = useState(0);
   const [featuredGeneral, setFeaturedGeneral] = useState(0);
