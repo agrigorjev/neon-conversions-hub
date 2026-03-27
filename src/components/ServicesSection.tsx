@@ -62,10 +62,9 @@ const insuranceServices = [
 
 const ServicesSection = () => {
   const [activeService, setActiveService] = useState(0);
-  const [featuredGeneral, setFeaturedGeneral] = useState(0);
   const active = insuranceServices[activeService];
-  const featured = generalServices[featuredGeneral];
-  const others = generalServices.filter((_, i) => i !== featuredGeneral);
+  const featured = generalServices[0];
+  const others = generalServices.slice(1);
 
   return (
     <section id="services" className="py-24 md:py-32 relative overflow-hidden">
