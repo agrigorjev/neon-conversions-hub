@@ -14,8 +14,7 @@ const Index = () => (
     <HeroSection />
     <ConferenceBanner />
     <ServicesSection />
-    <AchievementsSection />
-    <AdvantagesSection />
+    <WhyRoxosoftSection />
     <TestimonialsSection />
     <CaseStudiesSection />
     <ContactSection />
