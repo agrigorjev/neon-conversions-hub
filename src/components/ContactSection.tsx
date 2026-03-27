@@ -35,7 +35,8 @@ const ContactSection = () => {
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <motion.form onSubmit={handleSubmit} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="bg-glass rounded-2xl p-8 border-glow space-y-5">
+            className="bg-glass rounded-2xl p-8 border-glow space-y-5 relative overflow-hidden">
+            <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
             <Input placeholder="Name" required className="bg-secondary border-border focus:ring-primary" />
             <Input type="email" placeholder="Corporate Email" required className="bg-secondary border-border focus:ring-primary" />
             <Input type="tel" placeholder="Phone" className="bg-secondary border-border focus:ring-primary" />
