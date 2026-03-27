@@ -83,9 +83,9 @@ const ServicesSection = () => {
           <div className="grid md:grid-cols-2 md:grid-rows-2 gap-6">
             {/* Featured (left) */}
             <motion.div
-              key={featured.title}
               initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.35 }}
               className="bg-glass rounded-2xl p-8 md:p-10 border-glow glow-neon flex flex-col justify-between md:row-span-2"
             >
