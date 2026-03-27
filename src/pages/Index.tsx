@@ -2,8 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ConferenceBanner from "@/components/ConferenceBanner";
 import ServicesSection from "@/components/ServicesSection";
-import AchievementsSection from "@/components/AchievementsSection";
-import AdvantagesSection from "@/components/AdvantagesSection";
+import WhyRoxosoftSection from "@/components/WhyRoxosoftSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import ContactSection from "@/components/ContactSection";
@@ -15,8 +14,7 @@ const Index = () => (
     <HeroSection />
     <ConferenceBanner />
     <ServicesSection />
-    <AchievementsSection />
-    <AdvantagesSection />
+    <WhyRoxosoftSection />
     <TestimonialsSection />
     <CaseStudiesSection />
     <ContactSection />
