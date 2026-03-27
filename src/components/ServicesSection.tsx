@@ -81,7 +81,7 @@ const ServicesSection = () => {
         {/* General - Bento Grid */}
         <div className="mb-20">
           <h3 className="text-xl font-semibold mb-8 text-center text-muted-foreground">General Software Services</h3>
-          <div className="grid md:grid-cols-[1fr_1fr] gap-6">
+          <div className="grid md:grid-cols-2 md:grid-rows-2 gap-6">
             {/* Featured (left) */}
             <motion.div
               key={featured.title}
