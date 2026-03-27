@@ -2,9 +2,24 @@ import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
 const testimonials = [
-  { quote: "Roxosoft delivered exceptional service and expertise. Highly recommend!", reviewer: "John Doe", company: "Company A", rating: 5 },
-  { quote: "The team was professional and knowledgeable. They exceeded our expectations.", reviewer: "Jane Smith", company: "Company B", rating: 4 },
-  { quote: "Great experience working with Roxosoft. They understood our needs perfectly.", reviewer: "Mike Johnson", company: "Company C", rating: 5 },
+  {
+    quote: "I like the founders. We got along very well and I appreciate their honesty and efforts to solve some very difficult problems. They were very responsive. No fuzz.",
+    reviewer: "Niels Bosma",
+    company: "Founder & CEO, Filestar AB",
+    rating: 5,
+  },
+  {
+    quote: "In the years we have been working together, everything has worked perfectly. They have a good will to solve tasks according to our wishes. The fact that we still have them says a lot.",
+    reviewer: "Joakim Erlandson",
+    company: "Former CEO, Börs Världen Nordic AB",
+    rating: 5,
+  },
+  {
+    quote: "I'm impressed with their professional and thorough work ethic, that makes it easy to trust them. They set realistic expectations and generally met them in a timely fashion.",
+    reviewer: "Anonymous",
+    company: "Publisher, Book & Data Publishing Company",
+    rating: 5,
+  },
 ];
 
 const TestimonialsSection = () => (
