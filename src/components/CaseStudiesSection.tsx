@@ -41,8 +41,12 @@ const RatingStars = ({ rating }: { rating: number }) => (
 );
 
 const CaseStudiesSection = () => (
-  <section id="cases" className="py-24 md:py-32">
-    <div className="container">
+    <section id="cases" className="py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-50" />
+      <div className="absolute top-0 left-1/3 w-[400px] h-[400px] rounded-full bg-[hsl(260,80%,65%)]/[0.03] blur-[100px]" />
+      <div className="absolute bottom-1/4 -right-20 w-[450px] h-[350px] rounded-full bg-primary/[0.04] blur-[90px]" />
+
+      <div className="container relative z-10">
       <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Case Studies</p>
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-6">
         Discover Our <span className="text-gradient-neon">Success Stories</span>

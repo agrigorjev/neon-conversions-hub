@@ -25,6 +25,9 @@ const testimonials = [
 const TestimonialsSection = () => (
   <section className="py-24 md:py-32 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+    <div className="absolute inset-0 bg-diagonal" />
+    <div className="absolute -top-20 right-1/4 w-[350px] h-[350px] rounded-full bg-[hsl(260,80%,65%)]/[0.04] blur-[90px]" />
+    <div className="absolute bottom-0 left-10 w-[300px] h-[250px] rounded-full bg-primary/[0.03] blur-[80px]" />
     <div className="container relative z-10">
       <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Testimonials</p>
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">What Our <span className="text-gradient-neon">Clients Say</span></h2>

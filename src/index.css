@@ -99,6 +99,28 @@
   .border-glow {
     border: 1px solid hsl(195 100% 50% / 0.2);
   }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(195 100% 50% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(195 100% 50% / 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(hsl(195 100% 50% / 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-diagonal {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      hsl(195 100% 50% / 0.02) 40px,
+      hsl(195 100% 50% / 0.02) 41px
+    );
+  }
 }
 
 @keyframes particle-float {

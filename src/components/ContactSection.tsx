@@ -26,6 +26,9 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      <div className="absolute inset-0 bg-dots opacity-50" />
+      <div className="absolute top-1/3 -left-20 w-[400px] h-[400px] rounded-full bg-primary/[0.05] blur-[100px]" />
+      <div className="absolute bottom-0 right-1/4 w-[350px] h-[300px] rounded-full bg-[hsl(260,80%,65%)]/[0.04] blur-[80px]" />
       <div className="container relative z-10">
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Get In Touch</p>
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Let's Build <span className="text-gradient-neon">Together</span></h2>
