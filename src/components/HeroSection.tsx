@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import clutchBadge from "@/assets/clutch-2025-logo.png";
 import microsoftBadge from "@/assets/microsoft-certified.png";
+import teamPhoto from "@/assets/team.png";
 
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
