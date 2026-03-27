@@ -25,9 +25,9 @@ function TypewriterQuote({ text, speed = 35 }: { text: string; speed?: number })
 
   return (
     <p ref={ref} className="text-lg font-medium text-foreground leading-relaxed italic min-h-[4.5rem]">
-      "{displayed}
+      &ldquo;{displayed}
       {!done && <span className="inline-block w-[2px] h-[1.1em] bg-primary ml-0.5 align-middle animate-pulse" />}
-      {done && """}
+      {done && &rdquo;}
     </p>
   );
 }
