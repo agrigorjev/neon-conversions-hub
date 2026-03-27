@@ -112,8 +112,8 @@ const ServicesSection = () => {
               </a>
             </motion.div>
 
-            {/* Stacked (right) */}
-            <div className="flex flex-col gap-6">
+            {/* Stacked (right) — each card takes equal space to match featured height */}
+            <div className="flex flex-col gap-6 h-full">
               {others.map((s) => (
                 <motion.button
                   key={s.title}
@@ -121,15 +121,25 @@ const ServicesSection = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-glass rounded-2xl p-6 md:p-8 border-glow hover:glow-neon transition-all duration-300 text-left group cursor-pointer"
+                  className="bg-glass rounded-2xl p-6 border-glow hover:glow-neon transition-all duration-300 text-left group cursor-pointer flex-1 flex flex-col justify-center"
                 >
-                  <div className="flex items-center gap-4 mb-3">
+                  <div className="flex items-center gap-4 mb-2">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <s.icon className="w-5 h-5 text-primary" />
                     </div>
                     <h4 className="text-lg font-semibold text-foreground">{s.title}</h4>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  {s.highlights && (
+                    <ul className="mt-3 space-y-1">
+                      {s.highlights.map((h) => (
+                        <li key={h} className="flex items-center gap-2 text-xs text-foreground/70">
+                          <ArrowRight className="w-3 h-3 text-primary shrink-0" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </motion.button>
               ))}
             </div>
