@@ -1,9 +1,37 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, Star, Quote } from "lucide-react";
 import mandaraLogo from "@/assets/mandara-logo.png";
 import ellomyntLogo from "@/assets/ellomynt-logo.png";
 import craftsmanLogo from "@/assets/craftsman-logo.png";
 import filestarLogo from "@/assets/filestar-logo.png";
+
+function TypewriterQuote({ text, speed = 35 }: { text: string; speed?: number }) {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+  const ref = useRef<HTMLParagraphElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  useEffect(() => {
+    if (!inView) return;
+    let i = 0;
+    const timer = setInterval(() => {
+      i++;
+      if (i > text.length) { setDone(true); clearInterval(timer); }
+      else setDisplayed(text.slice(0, i));
+    }, speed);
+    return () => clearInterval(timer);
+  }, [inView, text, speed]);
+
+  return (
+    <p ref={ref} className="text-lg font-medium text-foreground leading-relaxed italic min-h-[4.5rem]">
+      {"\u201C"}{displayed}
+      {!done && <span className="inline-block w-[2px] h-[1.1em] bg-primary ml-0.5 align-middle animate-pulse" />}
+      {done && "\u201D"}
+    </p>
+  );
+}
+
 const smallCases = [
   {
     name: "Mandara Capital (UK)",
@@ -96,9 +124,7 @@ const CaseStudiesSection = () => (
           <div className="border-t md:border-t-0 md:border-l border-border/30 p-8 flex flex-col justify-center bg-primary/[0.03]">
             <div className="mb-6">
               <Quote className="w-8 h-8 text-primary/40 mb-4" />
-              <p className="text-lg font-medium text-foreground leading-relaxed italic">
-                "I'm impressed with their professional and thorough work ethic, that makes it easy to trust them."
-              </p>
+              <TypewriterQuote text="I'm impressed with their professional and thorough work ethic, that makes it easy to trust them." />
             </div>
             <div className="mb-6">
               <RatingStars rating={4.5} />
