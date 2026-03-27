@@ -68,8 +68,9 @@ const WhyRoxosoftSection = () => (
     <div className="container relative z-10">
       <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Our Edge</p>
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">
-        What Makes Roxosoft <span className="text-gradient-neon">a Reliable IT Partner</span>
+        Why Businesses <span className="text-gradient-neon">Choose Roxosoft</span>
       </h2>
+      <p className="text-lg md:text-xl text-muted-foreground text-center mb-14 max-w-2xl mx-auto"></p>
 
       {/* Bullet list with highlighted numbers */}
       <div className="grid md:grid-cols-2 gap-5 mb-20">
