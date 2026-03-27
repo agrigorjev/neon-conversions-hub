@@ -38,109 +38,95 @@ type MosaicItem = {
   size: "lg" | "md" | "sm";
 };
 
-const items: MosaicItem[] = [
-  // Large – achievements
-  { icon: Award, title: "Top Clutch", desc: "Software Dev Company 2025", stat: "Top Clutch", size: "lg" },
-  { icon: MessageSquare, title: "Expert Consultation", desc: "You'll be talking to product and tech experts — no account managers.", size: "lg" },
-  // Medium – key stats
-  { icon: Handshake, title: "Microsoft Partner", desc: "Years as Microsoft Partner", stat: "15+", numeric: true, end: 15, suffix: "+", size: "md" },
-  { icon: Clock, title: "Experience", desc: "Years Software Dev Experience", stat: "20+", numeric: true, end: 20, suffix: "+", size: "md" },
-  { icon: BadgeCheck, title: "Certified Pros", desc: "Microsoft, AWS, Google, Oracle & more", size: "md" },
-  { icon: Users, title: "Senior Engineers", desc: "Senior-Level Engineers", stat: "75%+", numeric: true, end: 75, suffix: "%+", size: "md" },
-  // Small – advantage badges
-  { icon: Zap, title: "24h Response", desc: "Every time", size: "sm" },
-  { icon: TrendingUp, title: "Client Retention", desc: "5+ years avg", size: "sm" },
-  { icon: FolderKanban, title: "50+ Projects", desc: "Delivered", size: "sm" },
-  { icon: Filter, title: "Rigorous Selection", desc: "~100 per hire", size: "sm" },
-  { icon: Settings, title: "Tailored Solutions", desc: "Custom IT", size: "sm" },
-  { icon: Trophy, title: "Proven Track Record", desc: "Cross-industry", size: "sm" },
-  { icon: HeartHandshake, title: "Client-Centric", desc: "Your priorities", size: "sm" },
-  { icon: LifeBuoy, title: "Continuous Support", desc: "Post-launch", size: "sm" },
+// Each item has explicit grid placement for a mixed mosaic
+// Grid is 6 columns. lg = 3col×2row, md = 2col×1row, sm = 1col×1row
+const items: (MosaicItem & { col: string; row: string })[] = [
+  // Row 1-2
+  { icon: Award, title: "Top Clutch", desc: "Software Dev Company 2025", stat: "Top Clutch", size: "lg", col: "md:col-span-3", row: "md:row-span-2" },
+  { icon: Zap, title: "24h Response", desc: "Every time", size: "sm", col: "md:col-span-1", row: "" },
+  { icon: Handshake, title: "Microsoft Partner", desc: "Years as Microsoft Partner", stat: "15+", numeric: true, end: 15, suffix: "+", size: "md", col: "md:col-span-2", row: "" },
+  { icon: Filter, title: "Rigorous Selection", desc: "~100 per hire", size: "sm", col: "md:col-span-1", row: "" },
+  { icon: Clock, title: "Experience", desc: "Years Software Dev Experience", stat: "20+", numeric: true, end: 20, suffix: "+", size: "md", col: "md:col-span-2", row: "" },
+  // Row 3-4
+  { icon: MessageSquare, title: "Expert Consultation", desc: "Product and tech experts — no account managers.", size: "lg", col: "md:col-span-3", row: "md:row-span-2" },
+  { icon: BadgeCheck, title: "Certified Pros", desc: "Microsoft, AWS, Google, Oracle & more", size: "md", col: "md:col-span-2", row: "" },
+  { icon: Trophy, title: "Proven Track Record", desc: "Cross-industry", size: "sm", col: "md:col-span-1", row: "" },
+  { icon: Users, title: "Senior Engineers", desc: "Senior-Level Engineers", stat: "75%+", numeric: true, end: 75, suffix: "%+", size: "md", col: "md:col-span-2", row: "" },
+  { icon: HeartHandshake, title: "Client-Centric", desc: "Your priorities", size: "sm", col: "md:col-span-1", row: "" },
+  // Row 5
+  { icon: TrendingUp, title: "Client Retention", desc: "5+ years avg", size: "sm", col: "md:col-span-1", row: "" },
+  { icon: FolderKanban, title: "50+ Projects", desc: "Delivered", numeric: true, end: 50, suffix: "+", size: "md", col: "md:col-span-2", row: "" },
+  { icon: Settings, title: "Tailored Solutions", desc: "Custom IT", size: "sm", col: "md:col-span-1", row: "" },
+  { icon: LifeBuoy, title: "Continuous Support", desc: "Post-launch", size: "sm", col: "md:col-span-1", row: "" },
+  { icon: Settings, title: "Custom IT", desc: "Tailored solutions for your stack", size: "sm", col: "md:col-span-1", row: "" },
 ];
 
-const WhyRoxosoftSection = () => {
-  const large = items.filter(i => i.size === "lg");
-  const medium = items.filter(i => i.size === "md");
-  const small = items.filter(i => i.size === "sm");
+// Remove duplicate "Custom IT"
+const mosaicItems = items.filter((item, i, arr) => arr.findIndex(x => x.title === item.title) === i);
 
-  return (
-    <section id="about" className="py-24 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
+const sizeStyles = {
+  lg: "bg-glass rounded-2xl p-6 border-glow relative overflow-hidden group hover:glow-neon transition-shadow",
+  md: "bg-glass rounded-xl p-4 border-glow text-center hover:glow-neon transition-shadow",
+  sm: "bg-glass rounded-lg p-3 border-glow flex items-center gap-2 hover:glow-neon transition-shadow",
+};
 
-      <div className="container relative z-10">
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Why Roxosoft</p>
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">
-          Our <span className="text-gradient-neon">Edge</span>
-        </h2>
+const WhyRoxosoftSection = () => (
+  <section id="about" className="py-24 md:py-32 relative overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
 
-        {/* Mosaic grid: 6 columns */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-3 max-w-5xl mx-auto">
-          {/* Row 1: 2 large cards (3 cols each) */}
-          {large.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="col-span-2 md:col-span-3 bg-glass rounded-2xl p-6 border-glow relative overflow-hidden group hover:glow-neon transition-shadow"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-neon" />
-              <item.icon className="w-8 h-8 text-primary mb-3" />
-              <h4 className="text-lg font-bold text-foreground mb-1">
-                {item.stat && !item.numeric ? item.stat : item.title}
-              </h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
+    <div className="container relative z-10">
+      <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Why Roxosoft</p>
+      <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">
+        Our <span className="text-gradient-neon">Edge</span>
+      </h2>
 
-          {/* Row 2: 4 medium cards (varying spans) */}
-          {medium.map((item, i) => {
-            // First and last medium span 2 cols, middle ones span 1 col on mobile
-            const colSpan = i === 0 || i === 3 ? "col-span-2" : "col-span-1 md:col-span-1";
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.08 }}
-                className={`${colSpan} md:col-span-${i === 0 || i === 3 ? 2 : 1} bg-glass rounded-xl p-5 border-glow text-center hover:glow-neon transition-shadow`}
-              >
-                <item.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-2.5 max-w-5xl mx-auto">
+        {mosaicItems.map((item, i) => (
+          <motion.div
+            key={item.title}
+            initial={{ opacity: 0, scale: 0.92 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.04 }}
+            className={`${item.col} ${item.row} ${sizeStyles[item.size]}`}
+          >
+            {item.size === "lg" && <div className="absolute top-0 left-0 w-full h-1 bg-gradient-neon" />}
+
+            {item.size === "lg" && (
+              <>
+                <item.icon className="w-8 h-8 text-primary mb-3" />
+                <h4 className="text-lg font-bold text-foreground mb-1">
+                  {item.stat && !item.numeric ? item.stat : item.title}
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+              </>
+            )}
+
+            {item.size === "md" && (
+              <>
+                <item.icon className="w-5 h-5 text-primary mx-auto mb-1.5" />
                 {item.numeric ? (
-                  <p className="text-2xl font-extrabold text-foreground mb-0.5">
+                  <p className="text-xl font-extrabold text-foreground mb-0.5">
                     <AnimatedCounter end={item.end!} suffix={item.suffix!} />
                   </p>
                 ) : (
                   <p className="text-sm font-semibold text-foreground mb-0.5">{item.title}</p>
                 )}
-                <p className="text-xs text-muted-foreground">{item.desc}</p>
-              </motion.div>
-            );
-          })}
+                <p className="text-[11px] text-muted-foreground">{item.desc}</p>
+              </>
+            )}
 
-          {/* Row 3: small badge pills across full width */}
-          <div className="col-span-2 md:col-span-6 flex flex-wrap justify-center gap-2 mt-1">
-            {small.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 + i * 0.05 }}
-                className="flex items-center gap-2 bg-glass border-glow rounded-full px-4 py-2 hover:glow-neon transition-shadow"
-              >
+            {item.size === "sm" && (
+              <>
                 <item.icon className="w-3.5 h-3.5 text-primary flex-shrink-0" />
                 <span className="text-xs font-medium text-foreground whitespace-nowrap">{item.title}</span>
-                <span className="text-[10px] text-muted-foreground whitespace-nowrap hidden sm:inline">— {item.desc}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+              </>
+            )}
+          </motion.div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default WhyRoxosoftSection;
