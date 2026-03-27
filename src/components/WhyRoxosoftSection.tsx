@@ -73,6 +73,8 @@ const sizeStyles = {
 const WhyRoxosoftSection = () => (
   <section id="about" className="py-24 md:py-32 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
+    <div className="absolute inset-0 bg-dots" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[120px]" />
 
     <div className="container relative z-10">
       <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Why Roxosoft</p>

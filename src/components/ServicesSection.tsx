@@ -68,8 +68,13 @@ const ServicesSection = () => {
   const others = generalServices.filter((_, i) => i !== featuredGeneral);
 
   return (
-    <section id="services" className="py-24 md:py-32">
-      <div className="container">
+    <section id="services" className="py-24 md:py-32 relative overflow-hidden">
+      {/* Background: grid + radial glow */}
+      <div className="absolute inset-0 bg-grid" />
+      <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full bg-primary/[0.04] blur-[100px]" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[300px] rounded-full bg-[hsl(260,80%,65%)]/[0.03] blur-[80px]" />
+
+      <div className="container relative z-10">
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">What We Do</p>
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-20">Our <span className="text-gradient-neon">Services</span></h2>
 
