@@ -30,7 +30,7 @@ const HeroSection = () => (
           </Button>
           <Button asChild variant="outline" size="lg" className="border-glow text-foreground hover:bg-secondary text-base pl-1.5 pr-6">
             <a href="#about" className="flex items-center gap-3">
-              <img src={teamPhoto} alt="Roxosoft team" className="h-8 w-auto rounded-full" />
+              <img src={teamPhoto} alt="Roxosoft team" className="h-9 w-auto object-contain" />
               Meet the Team
             </a>
           </Button>
