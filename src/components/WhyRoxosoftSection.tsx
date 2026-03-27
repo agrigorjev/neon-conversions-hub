@@ -1,7 +1,15 @@
 import { motion, useInView } from "framer-motion";
 import {
-  Award, Handshake, Clock, Users, FolderKanban, HeartHandshake,
-  MessageSquare, BadgeCheck, Zap, Filter
+  Award,
+  Handshake,
+  Clock,
+  Users,
+  FolderKanban,
+  HeartHandshake,
+  MessageSquare,
+  BadgeCheck,
+  Zap,
+  Filter,
 } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 
@@ -18,13 +26,20 @@ function AnimatedNumber({ end, suffix, duration = 1.8 }: { end: number; suffix: 
     let current = 0;
     const timer = setInterval(() => {
       current += inc;
-      if (current >= end) { setCount(end); clearInterval(timer); }
-      else setCount(Math.floor(current));
+      if (current >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else setCount(Math.floor(current));
     }, stepTime);
     return () => clearInterval(timer);
   }, [inView, end, duration]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  );
 }
 
 const bullets = [
@@ -53,11 +68,8 @@ const WhyRoxosoftSection = () => (
     <div className="container relative z-10">
       <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Our Edge</p>
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">
-        Our <span className="text-gradient-neon">Edge</span>
+        What Makes Roxosoft <span className="text-gradient-neon">a Reliable IT Partner</span>
       </h2>
-      <p className="text-lg md:text-xl text-muted-foreground text-center mb-14 max-w-2xl mx-auto">
-        What Makes Roxosoft a Reliable IT Partner
-      </p>
 
       {/* Bullet list with highlighted numbers */}
       <div className="grid md:grid-cols-2 gap-5 mb-20">
@@ -86,7 +98,10 @@ const WhyRoxosoftSection = () => (
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
       <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
         {[...ticker, ...ticker, ...ticker, ...ticker].map((item, i) => (
-          <div key={i} className="flex-shrink-0 mx-3 flex items-center gap-3 bg-glass border-glow rounded-full px-6 py-3">
+          <div
+            key={i}
+            className="flex-shrink-0 mx-3 flex items-center gap-3 bg-glass border-glow rounded-full px-6 py-3"
+          >
             <item.icon className="w-5 h-5 text-primary flex-shrink-0" />
             <span className="text-sm font-medium text-foreground whitespace-nowrap">{item.text}</span>
           </div>
