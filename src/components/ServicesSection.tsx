@@ -62,10 +62,9 @@ const insuranceServices = [
 
 const ServicesSection = () => {
   const [activeService, setActiveService] = useState(0);
-  const [featuredGeneral, setFeaturedGeneral] = useState(0);
   const active = insuranceServices[activeService];
-  const featured = generalServices[featuredGeneral];
-  const others = generalServices.filter((_, i) => i !== featuredGeneral);
+  const featured = generalServices[0];
+  const others = generalServices.slice(1);
 
   return (
     <section id="services" className="py-24 md:py-32 relative overflow-hidden">
@@ -84,9 +83,9 @@ const ServicesSection = () => {
           <div className="grid md:grid-cols-2 md:grid-rows-2 gap-6">
             {/* Featured (left) */}
             <motion.div
-              key={featured.title}
               initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.35 }}
               className="bg-glass rounded-2xl p-8 md:p-10 border-glow glow-neon flex flex-col justify-between md:row-span-2"
             >
@@ -112,18 +111,18 @@ const ServicesSection = () => {
               </a>
             </motion.div>
 
-            {/* Right cards — direct grid children so rows align */}
-            {others.map((s) => (
-              <motion.button
+            {/* Right cards */}
+            {others.map((s, i) => (
+              <motion.div
                 key={s.title}
-                onClick={() => setFeaturedGeneral(generalServices.indexOf(s))}
                 initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="bg-glass rounded-2xl p-6 border-glow hover:glow-neon transition-all duration-300 text-left group cursor-pointer flex flex-col justify-center"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-glass rounded-2xl p-6 border-glow hover:glow-neon transition-shadow text-left flex flex-col justify-center"
               >
                 <div className="flex items-center gap-4 mb-2">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                     <s.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h4 className="text-lg font-semibold text-foreground">{s.title}</h4>
@@ -139,7 +138,7 @@ const ServicesSection = () => {
                     ))}
                   </ul>
                 )}
-              </motion.button>
+              </motion.div>
             ))}
           </div>
         </div>
