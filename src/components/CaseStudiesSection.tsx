@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, Star, Quote } from "lucide-react";
 import mandaraLogo from "@/assets/mandara-logo.png";
 import ellomyntLogo from "@/assets/ellomynt-logo.png";
