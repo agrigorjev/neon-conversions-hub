@@ -7,21 +7,21 @@ const main = [
   { icon: Zap, title: "Quick Response Time", desc: "We respond within 24 hours — every time." },
 ];
 
-const additional = [
-  { icon: Filter, title: "Rigorous Selection", desc: "~100 candidates screened per new team member." },
-  { icon: Settings, title: "Tailored Solutions", desc: "Customized IT solutions for your specific needs." },
-  { icon: Trophy, title: "Proven Track Record", desc: "Successful projects across various industries." },
-  { icon: HeartHandshake, title: "Client-Centric", desc: "We prioritize your needs throughout the project." },
-  { icon: LifeBuoy, title: "Continuous Support", desc: "Ongoing maintenance and support post-launch." },
+const ticker = [
+  { icon: Filter, title: "Rigorous Selection", desc: "~100 candidates per hire" },
+  { icon: Settings, title: "Tailored Solutions", desc: "Custom IT for your needs" },
+  { icon: Trophy, title: "Proven Track Record", desc: "Success across industries" },
+  { icon: HeartHandshake, title: "Client-Centric", desc: "Your priorities first" },
+  { icon: LifeBuoy, title: "Continuous Support", desc: "Post-launch maintenance" },
 ];
 
 const AdvantagesSection = () => (
-  <section className="py-24 md:py-32">
+  <section className="py-24 md:py-32 overflow-hidden">
     <div className="container">
       <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 text-center">Our Edge</p>
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Roxosoft <span className="text-gradient-neon">Advantages</span></h2>
 
-      <div className="grid md:grid-cols-3 gap-6 mb-12">
+      <div className="grid md:grid-cols-3 gap-6 mb-16">
         {main.map((a, i) => (
           <motion.div key={a.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
             className="bg-glass rounded-2xl p-8 border-glow relative overflow-hidden group hover:glow-neon transition-shadow">
@@ -32,15 +32,19 @@ const AdvantagesSection = () => (
           </motion.div>
         ))}
       </div>
+    </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-        {additional.map((a, i) => (
-          <motion.div key={a.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
-            className="bg-glass rounded-xl p-5 border-glow text-center hover:glow-neon transition-shadow">
-            <a.icon className="w-6 h-6 text-primary mx-auto mb-3" />
-            <p className="text-sm font-medium text-foreground mb-1">{a.title}</p>
-            <p className="text-xs text-muted-foreground">{a.desc}</p>
-          </motion.div>
+    {/* Marquee ticker */}
+    <div className="relative group">
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+      <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
+        {[...ticker, ...ticker, ...ticker, ...ticker].map((item, i) => (
+          <div key={i} className="flex-shrink-0 mx-3 flex items-center gap-3 bg-glass border-glow rounded-full px-6 py-3">
+            <item.icon className="w-5 h-5 text-primary flex-shrink-0" />
+            <span className="text-sm font-medium text-foreground whitespace-nowrap">{item.title}</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap hidden sm:inline">— {item.desc}</span>
+          </div>
         ))}
       </div>
     </div>

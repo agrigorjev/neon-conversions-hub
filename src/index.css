@@ -100,3 +100,39 @@
     border: 1px solid hsl(195 100% 50% / 0.2);
   }
 }
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px) translateX(20px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
+  .animate-particle {
+    animation: particle-float ease-in-out infinite;
+  }
+
+  .animate-marquee {
+    animation: marquee-scroll 30s linear infinite;
+  }
+}
