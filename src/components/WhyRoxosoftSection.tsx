@@ -33,6 +33,7 @@ const bullets = [
   { icon: HeartHandshake, label: "Most clients stay over", end: 8, suffix: " years" },
   { icon: FolderKanban, label: "Projects delivered", end: 50, suffix: "+" },
   { icon: Users, label: "IT experts are seniors", end: 75, suffix: "%+" },
+  { icon: Filter, label: "Candidates screened per new team member", end: 100, suffix: "+" },
 ];
 
 const ticker = [
