@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import logo from "@/assets/logo.png";
 
 const services = {
@@ -30,7 +31,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-glass">
       <div className="container flex items-center justify-between h-16 md:h-20">
         <a href="#" className="flex items-center">
-          <img src={logo} alt="Roxosoft" className="h-8 md:h-10 w-auto" />
+          <Image src={logo} alt="Roxosoft" className="h-8 md:h-10 w-auto" />
         </a>
 
         {/* Desktop Nav */}

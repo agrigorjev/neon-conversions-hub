@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, Star, Quote } from "lucide-react";
+import Image, { StaticImageData } from "next/image";
 import mandaraLogo from "@/assets/mandara-logo.png";
 import ellomyntLogo from "@/assets/ellomynt-logo.png";
 import craftsmanLogo from "@/assets/craftsman-logo.png";
@@ -34,7 +35,7 @@ function TypewriterQuote({ text, speed = 35 }: { text: string; speed?: number })
   );
 }
 
-const smallCases = [
+const smallCases: { name: string; tags: string; desc: string; logo: StaticImageData; link: string }[] = [
   {
     name: "Mandara Capital (UK)",
     tags: "FinTech, C#, Azure, ML, PowerBI",
@@ -101,7 +102,7 @@ const CaseStudiesSection = () => (
             className="group flex flex-col"
           >
             <div className="h-56 bg-background/50 flex items-center justify-center p-6">
-              <img src={craftsmanLogo} alt="Craftsman Book Co" className="max-h-full max-w-full object-contain" />
+              <Image src={craftsmanLogo} alt="Craftsman Book Co" className="max-h-full max-w-full object-contain" />
             </div>
             <div className="p-8 flex-1">
               <p className="font-mono text-[10px] uppercase tracking-wider text-primary/70 mb-2">
@@ -158,11 +159,7 @@ const CaseStudiesSection = () => (
             className="group bg-glass rounded-2xl overflow-hidden border-glow hover:glow-neon transition-shadow"
           >
             <div className="h-48 bg-background/50 flex items-center justify-center p-4">
-              {c.logo ? (
-                <img src={c.logo} alt={c.name} className="max-h-full max-w-full object-contain" />
-              ) : (
-                <span className="text-3xl font-bold text-foreground/60">{c.name.split(" (")[0]}</span>
-              )}
+              <Image src={c.logo} alt={c.name} className="max-h-full max-w-full object-contain" />
             </div>
             <div className="p-6">
               <p className="font-mono text-[10px] uppercase tracking-wider text-primary/70 mb-2">{c.tags}</p>

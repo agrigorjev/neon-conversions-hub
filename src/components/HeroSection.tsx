@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import heroBg from "@/assets/hero-bg.jpg";
 import clutchBadge from "@/assets/clutch-2025-logo.png";
 import microsoftBadge from "@/assets/microsoft-certified.png";
@@ -10,12 +11,12 @@ import teamPhoto from "@/assets/team.png";
 
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-    <img
+    <Image
       src={heroBg}
       alt=""
       className="absolute inset-0 w-full h-full object-cover opacity-40"
-      width={1920}
-      height={1080}
+      fill
+      priority
     />
     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
 
@@ -59,7 +60,7 @@ const HeroSection = () => (
             className="border-glow text-foreground hover:bg-secondary text-base pl-1.5 pr-6"
           >
             <a href="#about" className="group flex items-center gap-3">
-              <img src={teamPhoto} alt="Roxosoft team" className="h-11 w-auto object-contain translate-y-[2px] transition-all group-hover:opacity-70 group-hover:grayscale" />
+              <Image src={teamPhoto} alt="Roxosoft team" className="h-11 w-auto object-contain translate-y-[2px] transition-all group-hover:opacity-70 group-hover:grayscale" />
               Meet the Team
             </a>
           </Button>
@@ -74,14 +75,14 @@ const HeroSection = () => (
         className="flex flex-wrap items-center gap-6"
       >
         <div className="bg-glass rounded-xl px-5 py-3 border-glow flex items-center gap-3">
-          <img src={clutchBadge} alt="Clutch Top Software Developers 2025" className="h-14 w-auto" />
+          <Image src={clutchBadge} alt="Clutch Top Software Developers 2025" className="h-14 w-auto" />
           <div>
             <p className="text-sm font-semibold text-foreground">Top Developers</p>
             <p className="text-xs text-muted-foreground">Clutch 2025</p>
           </div>
         </div>
         <div className="bg-glass rounded-xl px-5 py-3 border-glow flex items-center gap-3">
-          <img src={microsoftBadge} alt="Microsoft Certified Partner" className="h-10 w-auto" />
+          <Image src={microsoftBadge} alt="Microsoft Certified Partner" className="h-10 w-auto" />
           <div>
             <p className="text-sm font-semibold text-foreground">Microsoft Partner</p>
             <p className="text-xs text-muted-foreground">Since 2010</p>
