@@ -8,18 +8,18 @@ import CaseStudiesSection from "@/components/CaseStudiesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
-const Index = () => (
-  <div className="min-h-screen bg-background">
-    <Header />
-    <HeroSection />
-    <ConferenceBanner />
-    <ServicesSection />
-    <WhyRoxosoftSection />
-    <TestimonialsSection />
-    <CaseStudiesSection />
-    <ContactSection />
-    <Footer />
-  </div>
-);
-
-export default Index;
+export default function Page() {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      <HeroSection />
+      <ConferenceBanner />
+      <ServicesSection />
+      <WhyRoxosoftSection />
+      <TestimonialsSection />
+      <CaseStudiesSection />
+      <ContactSection />
+      <Footer />
+    </div>
+  );
+}
