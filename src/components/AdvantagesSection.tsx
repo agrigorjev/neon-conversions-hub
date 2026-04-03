@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useInView } from "framer-motion";
 import { Award, MessageSquare, BadgeCheck, Zap, Filter, Handshake, Clock, Users, FolderKanban, HeartHandshake } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
